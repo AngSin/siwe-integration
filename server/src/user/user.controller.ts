@@ -8,9 +8,13 @@ export class UserController {
 
   @Get('/')
   async getAllUsers(@Res() res) {
-    const users = await this.userService.getAllUsers();
-    res.status(HttpStatus.OK);
-    res.send(users);
+    try {
+      const users = await this.userService.getAllUsers();
+      res.status(HttpStatus.OK);
+      res.send(users);
+    } catch (e) {
+      res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   @Get('/profile')

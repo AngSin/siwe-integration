@@ -20,7 +20,7 @@ export class UserService {
     return users.map(({ address: _, ...user }) => user); // hide users' addresses
   }
 
-  async getProfile(req: any) {
+  async getProfile(req: any): Promise<User | null> {
     this.signatureService.checkSiweSession(req);
     return await this.userRepository.findOne({
       where: {
