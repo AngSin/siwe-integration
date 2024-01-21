@@ -25,7 +25,8 @@ export class SignatureService {
       signature: signature,
       nonce: nonce,
     });
-    const expirationDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // one week from now
+    const oneWeekInMs = 7 * 24 * 60 * 60 * 1000;
+    const expirationDate = new Date(Date.now() + oneWeekInMs);
     return {
       expirationDate,
       siweMessage,

@@ -25,3 +25,4 @@
    4. Since the origin of the backend and frontend is the same, there is no need for a cross site cookie, which would consequently require to be "secure"/HTTPS-only and so I would  have to create an SSL certification.
    5. In a production environment, I would include a AWS-CDK stack so the infrastructure can live as code and be managed and improved on easily. The CDK stack would ideally include a VPC, Route53 Configuration, Cloudfront, S3, ECS and RDS Instance.
 6. **Frontend Framework:** Naturally I used React with Typescript, which is the go-to industry choice right now and also part of the Gnosis Pay stack (as mentioned in the job description).
+7. **Data Store:** Since the application is small I used React's Context to store most of the shared data between components instead of using Redux etc.
