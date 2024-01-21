@@ -20,7 +20,8 @@ export class UserService {
   async getAllUsers(res: Response) {
     res.status(HttpStatus.OK);
     const users = await this.userRepository.find();
-    return res.json(users);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return res.json(users.map(({ address: _, ...user }) => user)); // hide users' addresses
   }
 
   async getProfile(req: any, res: Response) {

@@ -64,7 +64,6 @@ export class SignatureService {
     if (!req.session.siwe) {
       return res.sendStatus(HttpStatus.FORBIDDEN);
     }
-    console.log('User is authenticated!');
     res.setHeader('Content-Type', 'text/plain');
     res.send(req.session.siwe.address);
   }
