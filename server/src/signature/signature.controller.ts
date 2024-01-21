@@ -13,16 +13,16 @@ export class SignatureController {
   getNonce(@Req() req, @Res() res) {
     req.session.nonce = this.signatureService.getNonce();
     res.status(HttpStatus.OK);
-    return res.send(req.session.nonce);
+    res.send(req.session.nonce);
   }
 
   @Post()
   async verifySignature(@Req() req, @Res() res) {
     const message = req.body.message;
     if (!message) {
-      res
-        .status(HttpStatus.UNPROCESSABLE_ENTITY)
-        .json({ message: 'Expected prepareMessage object as body.' });
+      res.status(HttpStatus.UNPROCESSABLE_ENTITY);
+      res.json({ message: 'Expected prepareMessage object as body.' });
+      return;
     }
     try {
       const { siweMessage, expirationDate } =

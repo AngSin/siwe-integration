@@ -87,6 +87,11 @@ describe('UserService', () => {
     it('should check SIWE session and save the user in DB', async () => {
       const address = '0x1234';
       const mockReq = {
+        body: {
+          name: 'name 0',
+          bio: 'bio 0',
+          image: 'image 0',
+        },
         session: {
           siwe: {
             address,
