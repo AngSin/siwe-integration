@@ -16,7 +16,6 @@ export class UserService {
 
   async getAllUsers(): Promise<UsersResponse> {
     const users = await this.userRepository.find();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return users.map(({ address: _, ...user }) => user); // hide users' addresses
   }
 

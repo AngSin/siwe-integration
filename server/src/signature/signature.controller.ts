@@ -42,7 +42,7 @@ export class SignatureController {
   @Get('/info')
   async getPersonalInformation(@Req() req, @Res() res) {
     try {
-      const address = await this.signatureService.getPersonalInformation(req);
+      const address = this.signatureService.getPersonalInformation(req);
       res.setHeader('Content-Type', 'text/plain');
       res.send(address);
     } catch (e) {

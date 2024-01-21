@@ -31,7 +31,7 @@ describe('UserController', () => {
     signatureService = module.get<SignatureService>(SignatureService);
   });
 
-  describe('GET /', () => {
+  describe('getAllUsers', () => {
     it('should return the users found by the service layer', async () => {
       const mockRes = {
         status: jest.fn(),
@@ -78,7 +78,7 @@ describe('UserController', () => {
     });
   });
 
-  describe('POST /', () => {
+  describe('saveUser', () => {
     it('should save the user via the service layer', async () => {
       const mockReq = {};
       const mockRes = {
@@ -118,7 +118,7 @@ describe('UserController', () => {
     });
   });
 
-  describe('GET /profile', () => {
+  describe('getProfile', () => {
     it('should return 200 if user is found', async () => {
       const mockReq = {};
       const mockRes = {

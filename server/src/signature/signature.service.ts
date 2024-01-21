@@ -32,7 +32,7 @@ export class SignatureService {
     };
   }
 
-  async getPersonalInformation(req: any): Promise<string> {
+  getPersonalInformation(req: any): string {
     this.checkSiweSession(req);
     return req.session.siwe.address;
   }
