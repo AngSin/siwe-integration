@@ -24,7 +24,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_ENVIRONMENT=local react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
