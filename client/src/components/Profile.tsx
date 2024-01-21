@@ -1,21 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { walletContext } from "../context/WalletContext";
-import { getProfile, saveUser} from "../utils/api";
+import { getProfile, saveUser } from "../utils/api";
 
 const Profile = () => {
   const { signInWithEthereum } = useContext(walletContext);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
-  const [image, setImage] = useState("");
 
   const getUserProfile = async () => {
-    const { name, bio, image } = await getProfile();
+    const { name, bio } = await getProfile();
     setName(name);
     if (bio) {
       setBio(bio);
-    }
-    if (image) {
-      setImage(image);
     }
   };
 
@@ -39,7 +35,6 @@ const Profile = () => {
       await saveUser({
         name,
         bio,
-        image
       });
     } catch (e) {
       console.error(e);

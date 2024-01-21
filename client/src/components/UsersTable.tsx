@@ -44,7 +44,6 @@ const UsersTable = () => {
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
-            <th>Avatar</th>
             <th>Name</th>
             <th>Bio</th>
           </tr>
@@ -52,15 +51,8 @@ const UsersTable = () => {
         <tbody>
           {users.map((user, index) => (
             <tr key={index}>
-              <td>
-                {user.image ? (
-                  <img src={user.image} alt={`${user.name}'s avatar`} />
-                ) : (
-                  "No image uploaded"
-                )}
-              </td>
-              <td>{user.name}</td>
-              <td>{user.bio || ""}</td>
+              <td className="text-center">{user.name}</td>
+              <td className="text-center">{user.bio || ""}</td>
             </tr>
           ))}
         </tbody>

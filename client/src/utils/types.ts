@@ -1,9 +1,6 @@
-import { SiweMessage } from "siwe";
-
 export type User = {
   name: string;
   bio?: string;
-  image?: string;
 };
 
 export type WalletContext = {
