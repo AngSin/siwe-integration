@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { HttpStatus } from '@nestjs/common';
 import { SiweErrorType } from 'siwe';
 
@@ -24,7 +24,7 @@ export const handleNoSiweSessionError = (e: Error, res: Response) => {
 export const handleSiweErrorTypes = (e: any, req: any, res: Response) => {
   req.session.siwe = null;
   req.session.nonce = null;
-  console.error(e);
+
   switch (e) {
     case SiweErrorType.EXPIRED_MESSAGE: {
       req.session.save(() =>
