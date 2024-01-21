@@ -1,9 +1,14 @@
-import {createContext, PropsWithChildren, useEffect, useState} from "react";
-import {WalletContext} from "../utils/types";
-import {checkUserLoggedIn, getNonce, logOut, verifySignature} from "../utils/api";
-import {BrowserProvider} from "ethers";
-import {SiweMessage} from "siwe";
-import {getSiweCookie} from "../utils/siwe-cookie";
+import { createContext, PropsWithChildren, useEffect, useState } from "react";
+import { WalletContext } from "../utils/types";
+import {
+  checkUserLoggedIn,
+  getNonce,
+  logOut,
+  verifySignature,
+} from "../utils/api";
+import { BrowserProvider } from "ethers";
+import { SiweMessage } from "siwe";
+import { getSiweCookie } from "../utils/siwe-cookie";
 
 export const initialWalletState = {
   wallet: undefined,
@@ -40,7 +45,8 @@ export const WalletContextProvider = (props: PropsWithChildren) => {
   const connectWallet = () => {
     if (window.ethereum) {
       const provider = new BrowserProvider(window.ethereum);
-      provider?.send("eth_requestAccounts", [])
+      provider
+        ?.send("eth_requestAccounts", [])
         .catch(() => console.log("user rejected request"));
     }
   };
@@ -65,7 +71,7 @@ export const WalletContextProvider = (props: PropsWithChildren) => {
             signature: newSignature,
           });
           if (isVerified) {
-            await setWallet(signer.address)
+            await setWallet(signer.address);
           }
           return isVerified;
         } catch (e) {
@@ -94,7 +100,7 @@ export const WalletContextProvider = (props: PropsWithChildren) => {
     if (siweCookie) {
       fetchWallet();
     } else {
-      setWallet(undefined)
+      setWallet(undefined);
     }
   }, [siweCookie]); //eslint-disable-line react-hooks/exhaustive-deps
 

@@ -3,7 +3,7 @@ import { walletContext } from "../context/WalletContext";
 import { getProfile, saveUser } from "../utils/api";
 
 const Profile = () => {
-  const { signInWithEthereum } = useContext(walletContext);
+  const { wallet, signInWithEthereum } = useContext(walletContext);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
 
@@ -25,6 +25,14 @@ const Profile = () => {
       console.error(e);
     }
   };
+
+  useEffect(() => {
+    if (wallet === undefined) {
+      // if wallet is reset
+      setName("");
+      setBio("");
+    }
+  }, [wallet]);
 
   useEffect(() => {
     signAndFetchProfile();
