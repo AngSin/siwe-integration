@@ -2,7 +2,7 @@ import React, { useContext, useState, MouseEvent } from "react";
 import { useNavigate, useOutlet } from "react-router-dom";
 import {walletContext} from "../context/WalletContext";
 
-const defaultMessage = 'No Wallet Connected';
+const defaultMessage = 'Connect Wallet';
 
 export const Page = () => {
 	const [isOpen, toggleAccordion] = useState(false)

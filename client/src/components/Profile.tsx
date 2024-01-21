@@ -62,7 +62,7 @@ const Profile = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            placeholder="Ben"
+            placeholder="Ben Shafii"
           />
         </div>
         <div className="mb-6">
